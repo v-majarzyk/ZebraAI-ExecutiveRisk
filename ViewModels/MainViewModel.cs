@@ -7,10 +7,21 @@ using System.Windows.Input;
 using ZebraAI_ExecutiveRisk.Models;
 using ZebraAI_ExecutiveRisk.ViewModels;
 
-namespace ZebraAI_ExecutiveRisk.ViewModels
+namespace ZebraAI_ExecutiveRisk
 {
+    // The MainViewModel must be within the namespace block.
     public class MainViewModel : BaseViewModel
     {
+        // --- STATIC BASE FILTER CLAUSES ---
+        // MOVED HERE: This array is now correctly defined inside the class.
+        private static readonly string[] StaticRequiredFilters = new[]
+        {
+            "CaseState eq 'Open'",
+            "CaseStatus ne 'Duplicate'",
+            "CaseStatus ne 'Resolved'",
+            "ServiceOfferingLevelOne eq 'Enterprise Support'"
+        };
+        
         // -------------------------------------------------------------
         // INPUT PROPERTIES
         // -------------------------------------------------------------
@@ -49,22 +60,19 @@ namespace ZebraAI_ExecutiveRisk.ViewModels
         {
             CasesList.Clear();
 
-            // 1. Build the API Filter String (Best Practice: Call dedicated method)
+            // 1. Build the full filter string 
             string severityFilter = BuildSeverityFilter();
+            string offeringFilter = BuildServiceOfferingFilter(); 
+            string fullFilter = BuildFullQueryFilter(severityFilter, offeringFilter);
             
-            // 2. Build the API Filter String (Service Offerings - Placeholder for next step)
-            string offeringFilter = "ServiceOfferingLevelTwo eq 'Unified Support Base'"; // Hardcoded placeholder
+            // NOTE: The 'fullFilter' variable holds the final query string, 
+            // ready to be sent to the API in the next development phase.
 
-            // 3. Combine the Filters (This is the string sent to the API/used for mock)
-            string combinedFilter = $"({severityFilter}) AND ({offeringFilter})";
-
-            // 4. MOCK DATA (Using the combined filter in the title for verification)
-            string criteria = $"Filter: {combinedFilter}";
-
+            // 2. MOCK DATA 
             CasesList.Add(new CaseRiskItem 
             { 
                 CaseNumber = $"CS-001A", 
-                Title = $"High Risk Escalation Candidate ({criteria})", 
+                Title = "High Risk Escalation Candidate (Verified)",
                 Customer = "Alpha Corp", 
                 Severity = SeverityOptions.Where(s => s.IsSelected).Select(s => s.Value).FirstOrDefault() ?? "N/A",
                 DaysOpen = 12,
@@ -79,7 +87,7 @@ namespace ZebraAI_ExecutiveRisk.ViewModels
             CasesList.Add(new CaseRiskItem 
             { 
                 CaseNumber = $"CS-002B", 
-                Title = "Standard Review Case", 
+                Title = "Standard Review Case",
                 Customer = "Beta Solutions", 
                 Severity = "B",
                 DaysOpen = 4,
@@ -96,27 +104,61 @@ namespace ZebraAI_ExecutiveRisk.ViewModels
 
         // --- DEDICATED FILTER BUILDER METHODS ---
 
-        // Implements the filter: (CurrentSeverity eq '1' or CurrentSeverity eq 'A' or ...)
+        // 1. Builds the core severity filter segment.
         private string BuildSeverityFilter()
         {
             const string FieldName = "CurrentSeverity";
             
-            // 1. Get the list of selected severity values (e.g., ["1", "A"])
             var selectedSeverities = SeverityOptions.Where(s => s.IsSelected).Select(s => s.Value).ToList();
 
             if (!selectedSeverities.Any())
             {
-                // Return a filter that results in no cases found if nothing is selected
                 return $"{FieldName} eq 'NONE_SELECTED'";
             }
 
-            // 2. Build the individual query clauses (e.g., "CurrentSeverity eq '1'")
             var clauses = selectedSeverities.Select(severity => 
                 $"{FieldName} eq '{severity}'"
             );
 
-            // 3. Combine the clauses with " or " and wrap in parentheses
             return string.Join(" or ", clauses);
+        }
+
+        // 2. Builds the core service offering filter segment.
+        private string BuildServiceOfferingFilter()
+        {
+            const string FieldName = "ServiceOfferingLevelTwo";
+            
+            var selectedOfferings = ServiceOfferingLevel2Options.Where(s => s.IsSelected).Select(s => s.Value).ToList();
+
+            if (!selectedOfferings.Any())
+            {
+                return $"{FieldName} eq 'NONE_SELECTED'";
+            }
+
+            var clauses = selectedOfferings.Select(offering => 
+                $"{FieldName} eq '{offering}'"
+            );
+
+            return string.Join(" or ", clauses);
+        }
+
+        // 3. Combines all static and dynamic filters into one string.
+        private string BuildFullQueryFilter(string severityFilter, string offeringFilter)
+        {
+            var filterParts = new List<string>(StaticRequiredFilters);
+
+            // Add dynamic filters, wrapping the OR clauses in parentheses
+            if (!string.IsNullOrEmpty(severityFilter))
+            {
+                filterParts.Add($"({severityFilter})");
+            }
+            if (!string.IsNullOrEmpty(offeringFilter))
+            {
+                filterParts.Add($"({offeringFilter})");
+            }
+
+            // Join all parts with the mandatory ' and ' operator
+            return string.Join(" and ", filterParts);
         }
     }
 }

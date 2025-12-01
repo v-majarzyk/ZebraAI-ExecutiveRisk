@@ -3,6 +3,7 @@ using System.Windows;
 using System.Diagnostics;
 using System.Windows.Navigation;
 using ZebraAI_ExecutiveRisk.ViewModels;
+using System.ComponentModel; // Added this using statement
 
 namespace ZebraAI_ExecutiveRisk
 {
@@ -13,11 +14,10 @@ namespace ZebraAI_ExecutiveRisk
             InitializeComponent();
             
             // Set the DataContext to an instance of the MainViewModel.
-            // This is the CRUCIAL step that connects the XAML (View) 
-            // to the C# Logic (ViewModel).
             this.DataContext = new MainViewModel();
         }
 
+        // Note: This method handles the link click, assuming it was added to MainWindow.xaml
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri) { UseShellExecute = true });
