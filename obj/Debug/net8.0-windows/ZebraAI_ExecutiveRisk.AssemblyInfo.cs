@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ZebraAI_ExecutiveRisk")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f15f1d2f5431280f8c4c7f6657bc8ff9fa450aa5")]
 [assembly: System.Reflection.AssemblyProductAttribute("ZebraAI_ExecutiveRisk")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ZebraAI_ExecutiveRisk")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

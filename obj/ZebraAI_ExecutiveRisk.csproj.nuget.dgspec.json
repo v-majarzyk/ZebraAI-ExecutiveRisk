@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\v-majarzyk\\Documents\\Development\\Projects\\Project_2\\ZebraAI_ExecutiveRisk\\ZebraAI_ExecutiveRisk.csproj": {}
+    "C:\\Users\\v-majarzyk\\OneDrive - Microsoft\\Documents\\Development\\Projects\\Project_2\\ZebraAI-ExecutiveRisk\\ZebraAI_ExecutiveRisk.csproj": {}
   },
   "projects": {
-    "C:\\Users\\v-majarzyk\\Documents\\Development\\Projects\\Project_2\\ZebraAI_ExecutiveRisk\\ZebraAI_ExecutiveRisk.csproj": {
+    "C:\\Users\\v-majarzyk\\OneDrive - Microsoft\\Documents\\Development\\Projects\\Project_2\\ZebraAI-ExecutiveRisk\\ZebraAI_ExecutiveRisk.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\v-majarzyk\\Documents\\Development\\Projects\\Project_2\\ZebraAI_ExecutiveRisk\\ZebraAI_ExecutiveRisk.csproj",
+        "projectUniqueName": "C:\\Users\\v-majarzyk\\OneDrive - Microsoft\\Documents\\Development\\Projects\\Project_2\\ZebraAI-ExecutiveRisk\\ZebraAI_ExecutiveRisk.csproj",
         "projectName": "ZebraAI_ExecutiveRisk",
-        "projectPath": "C:\\Users\\v-majarzyk\\Documents\\Development\\Projects\\Project_2\\ZebraAI_ExecutiveRisk\\ZebraAI_ExecutiveRisk.csproj",
+        "projectPath": "C:\\Users\\v-majarzyk\\OneDrive - Microsoft\\Documents\\Development\\Projects\\Project_2\\ZebraAI-ExecutiveRisk\\ZebraAI_ExecutiveRisk.csproj",
         "packagesPath": "C:\\Users\\v-majarzyk\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\v-majarzyk\\Documents\\Development\\Projects\\Project_2\\ZebraAI_ExecutiveRisk\\obj\\",
+        "outputPath": "C:\\Users\\v-majarzyk\\OneDrive - Microsoft\\Documents\\Development\\Projects\\Project_2\\ZebraAI-ExecutiveRisk\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\v-majarzyk\\AppData\\Roaming\\NuGet\\NuGet.Config"

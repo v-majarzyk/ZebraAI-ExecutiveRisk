@@ -17,3 +17,23 @@ C:\Users\v-majarzyk\Documents\Development\Projects\Project_2\ZebraAI_ExecutiveRi
 C:\Users\v-majarzyk\Documents\Development\Projects\Project_2\ZebraAI_ExecutiveRisk\obj\Debug\net8.0-windows\ZebraAI_ExecutiveRisk.pdb
 C:\Users\v-majarzyk\Documents\Development\Projects\Project_2\ZebraAI_ExecutiveRisk\obj\Debug\net8.0-windows\ZebraAI_ExecutiveRisk.genruntimeconfig.cache
 C:\Users\v-majarzyk\Documents\Development\Projects\Project_2\ZebraAI_ExecutiveRisk\obj\Debug\net8.0-windows\ref\ZebraAI_ExecutiveRisk.dll
+C:\Users\v-majarzyk\OneDrive - Microsoft\Documents\Development\Projects\Project_2\ZebraAI-ExecutiveRisk\bin\Debug\net8.0-windows\ZebraAI_ExecutiveRisk.exe
+C:\Users\v-majarzyk\OneDrive - Microsoft\Documents\Development\Projects\Project_2\ZebraAI-ExecutiveRisk\bin\Debug\net8.0-windows\ZebraAI_ExecutiveRisk.deps.json
+C:\Users\v-majarzyk\OneDrive - Microsoft\Documents\Development\Projects\Project_2\ZebraAI-ExecutiveRisk\bin\Debug\net8.0-windows\ZebraAI_ExecutiveRisk.runtimeconfig.json
+C:\Users\v-majarzyk\OneDrive - Microsoft\Documents\Development\Projects\Project_2\ZebraAI-ExecutiveRisk\bin\Debug\net8.0-windows\ZebraAI_ExecutiveRisk.dll
+C:\Users\v-majarzyk\OneDrive - Microsoft\Documents\Development\Projects\Project_2\ZebraAI-ExecutiveRisk\bin\Debug\net8.0-windows\ZebraAI_ExecutiveRisk.pdb
+C:\Users\v-majarzyk\OneDrive - Microsoft\Documents\Development\Projects\Project_2\ZebraAI-ExecutiveRisk\obj\Debug\net8.0-windows\MainWindow.baml
+C:\Users\v-majarzyk\OneDrive - Microsoft\Documents\Development\Projects\Project_2\ZebraAI-ExecutiveRisk\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\Users\v-majarzyk\OneDrive - Microsoft\Documents\Development\Projects\Project_2\ZebraAI-ExecutiveRisk\obj\Debug\net8.0-windows\App.g.cs
+C:\Users\v-majarzyk\OneDrive - Microsoft\Documents\Development\Projects\Project_2\ZebraAI-ExecutiveRisk\obj\Debug\net8.0-windows\ZebraAI_ExecutiveRisk_MarkupCompile.cache
+C:\Users\v-majarzyk\OneDrive - Microsoft\Documents\Development\Projects\Project_2\ZebraAI-ExecutiveRisk\obj\Debug\net8.0-windows\ZebraAI_ExecutiveRisk.g.resources
+C:\Users\v-majarzyk\OneDrive - Microsoft\Documents\Development\Projects\Project_2\ZebraAI-ExecutiveRisk\obj\Debug\net8.0-windows\ZebraAI_ExecutiveRisk.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\v-majarzyk\OneDrive - Microsoft\Documents\Development\Projects\Project_2\ZebraAI-ExecutiveRisk\obj\Debug\net8.0-windows\ZebraAI_ExecutiveRisk.AssemblyInfoInputs.cache
+C:\Users\v-majarzyk\OneDrive - Microsoft\Documents\Development\Projects\Project_2\ZebraAI-ExecutiveRisk\obj\Debug\net8.0-windows\ZebraAI_ExecutiveRisk.AssemblyInfo.cs
+C:\Users\v-majarzyk\OneDrive - Microsoft\Documents\Development\Projects\Project_2\ZebraAI-ExecutiveRisk\obj\Debug\net8.0-windows\ZebraAI_ExecutiveRisk.csproj.CoreCompileInputs.cache
+C:\Users\v-majarzyk\OneDrive - Microsoft\Documents\Development\Projects\Project_2\ZebraAI-ExecutiveRisk\obj\Debug\net8.0-windows\ZebraAI_ExecutiveRisk.sourcelink.json
+C:\Users\v-majarzyk\OneDrive - Microsoft\Documents\Development\Projects\Project_2\ZebraAI-ExecutiveRisk\obj\Debug\net8.0-windows\ZebraAI_ExecutiveRisk.dll
+C:\Users\v-majarzyk\OneDrive - Microsoft\Documents\Development\Projects\Project_2\ZebraAI-ExecutiveRisk\obj\Debug\net8.0-windows\refint\ZebraAI_ExecutiveRisk.dll
+C:\Users\v-majarzyk\OneDrive - Microsoft\Documents\Development\Projects\Project_2\ZebraAI-ExecutiveRisk\obj\Debug\net8.0-windows\ZebraAI_ExecutiveRisk.pdb
+C:\Users\v-majarzyk\OneDrive - Microsoft\Documents\Development\Projects\Project_2\ZebraAI-ExecutiveRisk\obj\Debug\net8.0-windows\ZebraAI_ExecutiveRisk.genruntimeconfig.cache
+C:\Users\v-majarzyk\OneDrive - Microsoft\Documents\Development\Projects\Project_2\ZebraAI-ExecutiveRisk\obj\Debug\net8.0-windows\ref\ZebraAI_ExecutiveRisk.dll
