@@ -1,0 +1,43 @@
+<UserControl x:Class="ZebraAI_ExecutiveRisk.FilterControls"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="200">
+    
+    <StackPanel Margin="10,10,10,10" HorizontalAlignment="Stretch">
+        
+        <Label Content="Severity (Select All That Apply):" FontWeight="Bold" Margin="0,5,0,0"/>
+        <ListBox Height="100" Margin="0,2,0,10"
+                 ItemsSource="{Binding SeverityOptions}"
+                 SelectionMode="Multiple"
+                 HorizontalAlignment="Stretch">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <CheckBox Content="{Binding Value}" IsChecked="{Binding IsSelected}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Label Content="Service Offerings (Select All That Apply):" FontWeight="Bold" Margin="0,5,0,0"/>
+        <ListBox Height="100" Margin="0,2,0,10"
+                 ItemsSource="{Binding ServiceOfferingLevel2Options}"
+                 SelectionMode="Multiple"
+                 HorizontalAlignment="Stretch">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <CheckBox Content="{Binding Value}" IsChecked="{Binding IsSelected}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Button Content="Run Zebra AI Analysis (POC)" 
+                Command="{Binding SearchCommand}" 
+                Padding="10,5"
+                Background="#007ACC" Foreground="White" 
+                FontWeight="Bold"
+                HorizontalAlignment="Stretch"/>
+        
+    </StackPanel>
+</UserControl>

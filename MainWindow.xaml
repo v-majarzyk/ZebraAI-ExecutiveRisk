@@ -3,76 +3,102 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZebraAI_ExecutiveRisk"
         mc:Ignorable="d"
-        Title="Zebra AI Executive Risk Dashboard" Height="650" Width="1000">
+        Title="Zebra AI Executive Risk Dashboard" Height="650" Width="1200" MinWidth="600">
+    
+    <Window.Resources>
+        <Style x:Key="CollapsibleColumnStyle" TargetType="{x:Type ColumnDefinition}">
+            <Setter Property="Width" Value="280" /> <Style.Triggers>
+                <DataTrigger Binding="{Binding IsChecked, ElementName=SidebarToggleButton}" Value="True">
+                    <Setter Property="Width" Value="35" /> </DataTrigger>
+            </Style.Triggers>
+        </Style>
 
-    <Grid Margin="10">
-        
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>      <RowDefinition Height="*"/>         <RowDefinition Height="Auto"/>      </Grid.RowDefinitions>
+        <Style x:Key="ToggleButtonStyle" TargetType="ToggleButton">
+            <Setter Property="Background" Value="#DDDDDD"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Grid Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter Property="Content" Value="&#x25B6;" /> </Trigger>
+                <Trigger Property="IsChecked" Value="False">
+                    <Setter Property="Content" Value="&#x25C0;" /> </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="SidebarColumn" MinWidth="35" Style="{StaticResource CollapsibleColumnStyle}"/> 
+            <ColumnDefinition Width="*" x:Name="MainContentColumn"/>
+        </Grid.ColumnDefinitions>
 
-        <Grid Grid.Row="0" Margin="0,0,0,10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>  <ColumnDefinition Width="200"/>   <ColumnDefinition Width="Auto"/>  <ColumnDefinition Width="200"/>   <ColumnDefinition Width="*"/>     </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" Background="#F0F0F0" BorderBrush="#AAAAAA" BorderThickness="0,0,1,0">
+            <local:FilterControls x:Name="FilterContent" Padding="35,10,10,10"
+                                  DataContext="{Binding}">
+                <local:FilterControls.Style>
+                    <Style TargetType="local:FilterControls">
+                        <Setter Property="Visibility" Value="Visible"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsChecked, ElementName=SidebarToggleButton}" Value="True">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </local:FilterControls.Style>
+            </local:FilterControls>
+        </Border>
+
+        <ToggleButton x:Name="SidebarToggleButton" 
+                      Grid.Column="0" 
+                      Panel.ZIndex="2"                          
+                      IsChecked="True"                     
+                      HorizontalAlignment="Left" 
+                      VerticalAlignment="Stretch"          
+                      Style="{StaticResource ToggleButtonStyle}"
+                      Width="35"/>
+
+        <GridSplitter Grid.Column="0" 
+                      Width="5" 
+                      HorizontalAlignment="Right" 
+                      Margin="0,0,0,0" 
+                      Background="Transparent" 
+                      ResizeBehavior="PreviousAndNext" 
+                      ResizeDirection="Columns" />
+
+        <Grid Grid.Column="1" Margin="10">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/> 
+                <RowDefinition Height="*"/>         
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-
-            <Label Content="Severity (Select All That Apply):" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" FontWeight="Bold" Margin="0,5,0,0"/>
-            <ListBox Grid.Row="0" Grid.Column="1" Margin="5" Height="100"
-                     ItemsSource="{Binding SeverityOptions}"
-                     SelectionMode="Multiple">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <CheckBox Content="{Binding Value}" IsChecked="{Binding IsSelected}" />
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-
-            <Label Content="Service Offerings (Select All That Apply):" Grid.Row="0" Grid.Column="2" VerticalAlignment="Top" FontWeight="Bold" Margin="20,5,0,0"/>
-            <ListBox Grid.Row="0" Grid.Column="3" Margin="5" Height="100"
-                     ItemsSource="{Binding ServiceOfferingLevel2Options}"
-                     SelectionMode="Multiple">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <CheckBox Content="{Binding Value}" IsChecked="{Binding IsSelected}" />
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-
-            <Button Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Left"
-                    Content="Run Zebra AI Analysis (POC)" 
-                    Command="{Binding SearchCommand}" 
-                    Padding="10,5" Width="300" Margin="5,10,0,0"
-                    Background="#007ACC" Foreground="White" 
-                    FontWeight="Bold"/>
-        </Grid>
-
-        <DataGrid 
-            Grid.Row="1" 
-            ItemsSource="{Binding CasesList}" 
-            AutoGenerateColumns="False" 
-            IsReadOnly="True"
-            CanUserResizeColumns="True"
-            Background="#F9F9F9"
-            AlternatingRowBackground="#EFEFEF">
             
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Case #" Binding="{Binding CaseNumber}" Width="Auto" />
-                <DataGridTextColumn Header="Title / Summary" Binding="{Binding Title}" Width="3*" />
-                <DataGridTextColumn Header="Customer" Binding="{Binding Customer}" Width="1.5*" />
-                <DataGridTextColumn Header="Severity" Binding="{Binding Severity}" Width="Auto" />
-                <DataGridTextColumn Header="Days Open" Binding="{Binding DaysOpen}" Width="Auto" />
-                <DataGridTextColumn Header="Support Area" Binding="{Binding Sap}" Width="2*" />
-                <DataGridCheckBoxColumn Header="Engage?" Binding="{Binding EngageNow}" Width="Auto" />
-                <DataGridHyperlinkColumn Header="Link" Binding="{Binding Link}" Width="*" />
-            </DataGrid.Columns>
-        </DataGrid>
+            <DataGrid Grid.Row="0" ItemsSource="{Binding CasesList}" AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="True" Background="#F9F9F9" AlternatingRowBackground="#EFEFEF">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Case #" Binding="{Binding CaseNumber}" Width="Auto" />
+                    <DataGridTextColumn Header="Title / Summary" Binding="{Binding Title}" Width="3*" />
+                    <DataGridTextColumn Header="Customer" Binding="{Binding Customer}" Width="1.5*" />
+                    <DataGridTextColumn Header="Severity" Binding="{Binding Severity}" Width="Auto" />
+                    <DataGridTextColumn Header="Days Open" Binding="{Binding DaysOpen}" Width="Auto" />
+                    <DataGridTextColumn Header="Support Area" Binding="{Binding Sap}" Width="2*" />
+                    <DataGridCheckBoxColumn Header="Engage?" Binding="{Binding EngageNow}" Width="Auto" />
+                    <DataGridHyperlinkColumn Header="Link" Binding="{Binding Link}" Width="*" />
+                </DataGrid.Columns>
+            </DataGrid>
 
-        <StatusBar Grid.Row="2" Margin="0,10,0,0">
-            <TextBlock Text="{Binding CasesList.Count, StringFormat='{}Total Cases Found: {0}'}"/>
-        </StatusBar>
-        
+            <StatusBar Grid.Row="1" Margin="0,10,0,0">
+                <TextBlock Text="{Binding CasesList.Count, StringFormat='{}Total Cases Found: {0}'}"/>
+            </StatusBar>
+        </Grid>
     </Grid>
 </Window>

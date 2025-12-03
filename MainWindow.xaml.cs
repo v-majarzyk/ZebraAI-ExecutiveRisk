@@ -3,7 +3,9 @@ using System.Windows;
 using System.Diagnostics;
 using System.Windows.Navigation;
 using ZebraAI_ExecutiveRisk.ViewModels;
-using System.ComponentModel; // Added this using statement
+using System.ComponentModel;
+using System.Windows.Controls; 
+// Removed using System.Windows.Media.Animation;
 
 namespace ZebraAI_ExecutiveRisk
 {
@@ -17,7 +19,7 @@ namespace ZebraAI_ExecutiveRisk
             this.DataContext = new MainViewModel();
         }
 
-        // Note: This method handles the link click, assuming it was added to MainWindow.xaml
+        // Handles the hyperlink click logic
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri) { UseShellExecute = true });
