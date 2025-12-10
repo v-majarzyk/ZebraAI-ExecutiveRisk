@@ -1,0 +1,14 @@
+UI Header,Model Property,CSV Header,CSV Value (code)
+Case,CaseNumber,Case,r.CaseNumber
+SAP,SAP,SAP,r.SAP
+Title,Title,Title,r.Title
+Engage Now,EngageNow,EngageNow,r.EngageNow.ToString()
+Customer,Customer,Customer,r.Customer
+Severity,Severity,Severity,r.Severity
+Days Open,DaysOpen,DaysOpen,r.DaysOpen.ToString(System.Globalization.CultureInfo.InvariantCulture)
+Reason,Reason,Reason,r.Reason
+Last Eng Update (UTC),LastEngUpdateUtc,Last Eng Update (UTC),"r.LastEngUpdateUtc?.ToString(""u"") ?? """""
+Last Dissatisfaction (UTC),LastDissatUtc,Last Dissatisfaction (UTC),"r.LastDissatUtc?.ToString(""u"") ?? """""
+Last Contact (UTC),LastContactUtc,Last Contact (UTC),"r.LastContactUtc?.ToString(""u"") ?? """""
+Summary,Summary,Summary,r.summary
+Link,Link,Link,r.Link

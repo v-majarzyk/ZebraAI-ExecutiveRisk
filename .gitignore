@@ -1,0 +1,38 @@
+@'
+# Custom project ignores
+Versions/
+bin/
+obj/
+Debug/
+Release/
+*.zip
+
+# Standard .NET / VS / VSCode ignores
+.vs/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+TestResult*/
+*.trx
+*.coverage*
+*.pdb
+*.opendb
+*.Designer.cs
+*.g.*
+*.i.cs
+*.AssemblyAttributes.cs
+packages/
+PublishProfiles/
+*.dll
+*.exe
+*.msix*
+*.DotSettings.user
+Thumbs.db
+.DS_Store
+desktop.ini
+*.log
+logs/
+coverage/
+'@ | Out-File -Encoding UTF8 .gitignore

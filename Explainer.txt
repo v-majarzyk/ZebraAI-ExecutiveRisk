@@ -1,0 +1,13 @@
+---
+
+## 📌 Project Status as of 2025-12-01
+
+This repository contains an **initial test version** of the ZebraAI Case Review Application.  
+It was created as a proof‑of‑concept to explore how a WPF desktop app could evaluate support case escalation risk.  
+
+⚠️ **Important:**  
+- This project is **no longer maintained**.  
+- No further updates, bug fixes, or feature work will be done.  
+- The code remains available here for reference and archival purposes only.  
+
+---
