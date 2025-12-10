@@ -1,5 +1,4 @@
-@'
-# Custom project ignores
+# Project-specific
 Versions/
 bin/
 obj/
@@ -7,32 +6,36 @@ Debug/
 Release/
 *.zip
 
-# Standard .NET / VS / VSCode ignores
+# Visual Studio / VSCode
 .vs/
 .vscode/
 *.suo
 *.user
 *.userosscache
 *.sln.docstates
+
+# Build / test artifacts
 TestResult*/
 *.trx
 *.coverage*
 *.pdb
 *.opendb
+*.log
+logs/
+
+# .NET generated
 *.Designer.cs
 *.g.*
 *.i.cs
 *.AssemblyAttributes.cs
+
+# Packages / publish profiles
 packages/
 PublishProfiles/
-*.dll
-*.exe
 *.msix*
-*.DotSettings.user
+*.nupkg
+
+# Misc OS files
 Thumbs.db
 .DS_Store
 desktop.ini
-*.log
-logs/
-coverage/
-'@ | Out-File -Encoding UTF8 .gitignore
